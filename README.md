@@ -71,6 +71,56 @@
   - **Null**：Null 是一个表示“空”或“不存在”的特殊值。当需要明确表示一个变量没有值时，可以将其设置为 Null。
 
 - **扩展运算符（...）**：扩展运算符允许一个表达式在期望多个参数（用于函数调用）或多个元素（用于数组字面量）的位置展开。它主要用于函数调用、数组构造和字符串字面量中。
+  ### 1. 合并数组
+
+  ```javascript
+  const arr1 = [1, 2, 3];
+  const arr2 = [4, 5, 6];
+  const combinedArray = [...arr1, ...arr2];
+  console.log(combinedArray); // [1, 2, 3, 4, 5, 6]
+  ```
+
+  ### 2. 复制数组
+
+  ```javascript
+  const originalArray = [1, 2, 3];
+  const copiedArray = [...originalArray];
+  console.log(copiedArray); // [1, 2, 3]
+  ```
+
+  ### 3. 将数组中的元素插入到另一个数组
+
+  ```javascript
+  const arr1 = [1, 2, 3];
+  const arr2 = [4, 5, 6];
+  arr1.push(...arr2);
+  console.log(arr1); // [1, 2, 3, 4, 5, 6]
+  ```
+
+  ### 4. 复制对象
+
+  ```javascript
+  const obj1 = { a: 1, b: 2 };
+  const obj2 = { ...obj1 };
+  console.log(obj2); // { a: 1, b: 2 }
+  ```
+
+  ### 5. 合并对象
+
+  ```javascript
+  const obj1 = { a: 1, b: 2 };
+  const obj2 = { b: 3, c: 4 };
+  const mergedObject = { ...obj1, ...obj2 };
+  console.log(mergedObject); // { a: 1, b: 3, c: 4 }
+  ```
+
+  ### 6. 函数参数中的应用
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5];
+  const max = Math.max(...numbers);
+  console.log(max); // 5
+  ```
 
 - **数据类型转换**：JavaScript 经常需要将数据从一种类型转换为另一种类型。这可以通过显式转换（使用转换函数，如 `Number()`、`String()`、`Boolean()`）或隐式转换（在特定操作中自动发生）来实现。
 

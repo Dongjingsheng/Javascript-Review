@@ -126,6 +126,126 @@
 
 - **解构赋值**：解构赋值是一种表达式，可以将数组或对象中的值解包到不同的变量中。它提供了一种简洁、易读的方式来从数组或对象中提取数据，同时为变量赋值。
 
+## 数组解构赋值
+
+数组解构赋值可以将数组中的元素分别赋值给多个变量。
+
+```javascript
+let [a, b, c] = [1, 2, 3];
+console.log(a); // 输出：1
+console.log(b); // 输出：2
+console.log(c); // 输出：3
+```
+
+### 特性
+- **跳过元素**：
+  ```javascript
+  let [a, , c] = [1, 2, 3];
+  console.log(a); // 输出：1
+  console.log(c); // 输出：3
+  ```
+- **默认值**：
+  ```javascript
+  let [a, b = 10] = [5];
+  console.log(a); // 输出：5
+  console.log(b); // 输出：10
+  ```
+
+## 对象解构赋值
+
+对象解构赋值可以将对象中的属性赋值给变量。
+
+```javascript
+let { name, age } = { name: "张三", age: 30 };
+console.log(name); // 输出："张三"
+console.log(age);  // 输出：30
+```
+
+### 特性
+- **重命名变量**：
+  ```javascript
+  let { name: username, age } = { name: "张三", age: 30 };
+  console.log(username); // 输出："张三"
+  console.log(age);      // 输出：30
+  ```
+- **默认值**：
+  ```javascript
+  let { name, gender = "男" } = { name: "张三" };
+  console.log(name);  // 输出："张三"
+  console.log(gender); // 输出："男"
+  ```
+
+## 解构赋值的用途
+
+### 1. 交换变量值
+解构赋值可以轻松地交换两个变量的值。
+
+```javascript
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x); // 输出：2
+console.log(y); // 输出：1
+```
+
+### 2. 函数返回多个值
+通过函数返回一个数组或对象，并使用解构赋值提取值。
+
+```javascript
+function getUser() {
+  return { name: "张三", age: 30 };
+}
+
+let { name, age } = getUser();
+console.log(name); // 输出："张三"
+console.log(age);  // 输出：30
+```
+
+### 3. 函数参数解构
+在函数参数中直接使用解构赋值。
+
+```javascript
+function printUser({ name, age }) {
+  console.log(name, age);
+}
+
+printUser({ name: "张三", age: 30 }); // 输出："张三" 30
+```
+
+### 4. 嵌套解构
+解构赋值支持嵌套的数组或对象。
+
+```javascript
+let [a, [b, c]] = [1, [2, 3]];
+console.log(a); // 输出：1
+console.log(b); // 输出：2
+console.log(c); // 输出：3
+```
+
+## 注意事项
+
+1. **null 或 undefined**  
+   如果解构赋值时，等号右侧的值为 `null` 或 `undefined`，会抛出错误。
+   ```javascript
+   let { a } = null; // TypeError: Cannot destructure property 'a' of null
+   ```
+
+2. **设置默认值**  
+   为防止解构结果为 `undefined`，可以设置默认值：
+   ```javascript
+   let [a = 1] = [];
+   console.log(a); // 输出：1
+   ```
+
+3. **浅拷贝**  
+   解构赋值是浅拷贝，对于对象属性只拷贝引用：
+   ```javascript
+   let obj = { a: { b: 1 } };
+   let { a } = obj;
+   a.b = 2;
+   console.log(obj.a.b); // 输出：2
+   ```
+
+
 
 1. JavaScript中的合法标识符是：A. 2name B. myname C. @name D. function 正确答案：B
 2. 下列哪个选项不属于JavaScript的基本数据类型？ A. Number B. String C. Boolean D. Object 正确答案：D

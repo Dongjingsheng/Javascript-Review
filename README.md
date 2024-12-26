@@ -124,11 +124,15 @@
 
 - **数据类型转换**：JavaScript 经常需要将数据从一种类型转换为另一种类型。这可以通过显式转换（使用转换函数，如 `Number()`、`String()`、`Boolean()`）或隐式转换（在特定操作中自动发生）来实现。
 
-- **解构赋值**：解构赋值是一种表达式，可以将数组或对象中的值解包到不同的变量中。它提供了一种简洁、易读的方式来从数组或对象中提取数据，同时为变量赋值。
+# 解构赋值
+
+**解构赋值** 是一种表达式，可以将数组或对象中的值解包到不同的变量中。它提供了一种简洁、易读的方式来从数组或对象中提取数据，同时为变量赋值。
+
+---
 
 ## 数组解构赋值
 
-数组解构赋值可以将数组中的元素分别赋值给多个变量。
+数组解构赋值允许将数组中的元素分别赋值给多个变量。
 
 ```javascript
 let [a, b, c] = [1, 2, 3];
@@ -144,12 +148,15 @@ console.log(c); // 输出：3
   console.log(a); // 输出：1
   console.log(c); // 输出：3
   ```
+
 - **默认值**：
   ```javascript
   let [a, b = 10] = [5];
   console.log(a); // 输出：5
   console.log(b); // 输出：10
   ```
+
+---
 
 ## 对象解构赋值
 
@@ -168,6 +175,7 @@ console.log(age);  // 输出：30
   console.log(username); // 输出："张三"
   console.log(age);      // 输出：30
   ```
+
 - **默认值**：
   ```javascript
   let { name, gender = "男" } = { name: "张三" };
@@ -175,10 +183,12 @@ console.log(age);  // 输出：30
   console.log(gender); // 输出："男"
   ```
 
+---
+
 ## 解构赋值的用途
 
 ### 1. 交换变量值
-解构赋值可以轻松地交换两个变量的值。
+可以轻松地交换两个变量的值：
 
 ```javascript
 let x = 1, y = 2;
@@ -188,7 +198,7 @@ console.log(y); // 输出：1
 ```
 
 ### 2. 函数返回多个值
-通过函数返回一个数组或对象，并使用解构赋值提取值。
+通过函数返回数组或对象，并使用解构赋值提取值：
 
 ```javascript
 function getUser() {
@@ -201,7 +211,7 @@ console.log(age);  // 输出：30
 ```
 
 ### 3. 函数参数解构
-在函数参数中直接使用解构赋值。
+可以直接在函数参数中使用解构赋值：
 
 ```javascript
 function printUser({ name, age }) {
@@ -212,7 +222,7 @@ printUser({ name: "张三", age: 30 }); // 输出："张三" 30
 ```
 
 ### 4. 嵌套解构
-解构赋值支持嵌套的数组或对象。
+支持对嵌套的数组或对象进行解构：
 
 ```javascript
 let [a, [b, c]] = [1, [2, 3]];
@@ -221,10 +231,12 @@ console.log(b); // 输出：2
 console.log(c); // 输出：3
 ```
 
+---
+
 ## 注意事项
 
 1. **null 或 undefined**  
-   如果解构赋值时，等号右侧的值为 `null` 或 `undefined`，会抛出错误。
+   如果解构赋值时，等号右侧的值为 `null` 或 `undefined`，会抛出错误：
    ```javascript
    let { a } = null; // TypeError: Cannot destructure property 'a' of null
    ```
@@ -244,6 +256,8 @@ console.log(c); // 输出：3
    a.b = 2;
    console.log(obj.a.b); // 输出：2
    ```
+
+---
 
 
 

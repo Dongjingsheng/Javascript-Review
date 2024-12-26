@@ -1,0 +1,48 @@
+<!-- 实验十一：展开和收起文章内容 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>展开与收缩</title>
+<style>
+p {
+    border:10px solid #ccc; 
+    background:#FFC; 
+    width:400px; 
+    padding:20px; 
+    font-size:16px; 
+    font-family:微软雅黑; 
+    margin:40px auto 0; 
+}
+</style>
+</head>
+
+<body>
+<p>
+<span>敬业是职业道德的灵魂，它为个人安身立命奠定基础，为社会发展进步注入活力。正是依靠敬业奉献，中华民族创造了灿烂的文明。敬业乐业的民族，必定是令人肃然起敬的民族；缺乏敬业精神的社会，难免被人诟病和轻蔑。</span>
+<a href="javascript:;">>>收缩</a>
+</p>
+
+<script>
+    var oP = document.getElementsByTagName('p')[0];//通过标签号获取p标签元素对象
+    var oSpan = oP.getElementsByTagName('span')[0]; //通过标签号获取span标签元素对象
+    var oA = oP.getElementsByTagName('a')[0]; //通过标签号获取a标签元素对象
+    var str = oSpan.innerHTML; //将span元素对象的内容保存在字符串str里
+     
+    // 初始化为展开状态
+    var onOff = false;	//设置一个开关标志 
+
+    oA.onclick = function () { //为a标签元素对象添加单击事件
+        // 收缩时展现：敬业是职业道德的灵魂，它
+        if (onOff) {
+            oSpan.innerHTML = str; 
+            oA.innerHTML = ">>收缩";
+        } else {
+            oSpan.innerHTML = str.substring(0, 12) + "...";
+            oA.innerHTML = ">>展开";
+        }
+        onOff = !onOff;
+    };
+</script>
+</body>
+</html>

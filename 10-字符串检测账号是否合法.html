@@ -1,0 +1,57 @@
+<!-- 实验十：用字符串方法检测账号是否合法 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断账号</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+    <h2>判断账号是否合法</h2>
+    请输入账号：<input type="text" id="account"/>
+    <input type="button" value="判断" onclick="validateAccount()"/>
+    <p>
+        满足如下要求:<br/>
+        1、判断有没有输入<br />
+        2、判断输入的是不是数字<br />
+        3、不能有0在前面<br />
+        4、不能是小数<br />
+        5、输入的数字必须在5位以上、11位以内<br />
+    </p>
+    <script>
+        function validateAccount() {
+            var input = document.getElementById("account").value;
+            alert(check(input));
+        }
+
+        function check(str){
+            if(str === ""){                 // 判断有没有输入
+                return "你还没有输入，请输入！";
+            }
+            if(str.indexOf(".") !== -1){ // 用indexOf()方法去查找小数点是否存在，判断是否小数
+                return "非法字符'.'（请不要输入小数）！"
+            }
+            if(!detectNum(str)) {     // 判断输入的是不是数字
+                return "你必须输入一串数字！";
+            }
+            if(str.charAt(0) === "0"){      // 用charAt()方法返回位置为零的字符，判断是否为零
+                return "首字符不能为零！"
+            }
+            if(str.length < 5 || str.length > 11){          // 输入的数字必须在5位以上、11位以内
+                return "输入的数字必须在5位以上、11位以内！";
+            }
+            return "输入成功！";
+        } 
+
+        function detectNum (str) { // 判断字符串是否全是数字
+            var n = 0;
+            for ( var i=0; i<str.length; i++ ) {
+                n = str.charCodeAt(i);
+                if ( n<48 || n>57 ) return false;  // 0~9编码: 48~57 ASCII 码值
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

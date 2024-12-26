@@ -1,0 +1,52 @@
+<!-- 实验十四：元旦倒计时 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>元旦倒计时</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        #countdown #time{
+            font-size: 2em;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="time"></div>
+    <h1>元旦倒计时</h1>
+    <div id="countdown"></div>
+
+    <script>
+        
+    </script>
+</body>
+</html>
+</html>
+<script>
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('time').innerText = '当前时间: ' + now.toLocaleString();
+    }
+
+    function updateCountdown() {
+        const now = new Date();
+        const nextSpringFestival = new Date(now.getFullYear() + 1, 0, 1);
+        const timeDifference = nextSpringFestival - now;
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerText = 
+            `距离春节还有 ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+    }
+
+    setInterval(updateTime, 1000);
+    setInterval(updateCountdown, 1000);
+</script>

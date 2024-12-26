@@ -1,0 +1,28 @@
+<!-- 实验四：循环结构应用实验——滴水穿石模拟 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滴水穿石模拟</title>
+</head>
+
+<body>
+    <script>
+        let stoneThickness = 10000; // 初始石头厚度1cm（10000 μm）
+        let decreasePerDro = 0.1;  // 每次滴水减少的厚度（0.1 μm）
+        let drops = 0; // 初始滴水次数
+
+        while (stoneThickness > 0) {
+            drops++; // 滴水次数加一
+            stoneThickness -= decreasePerDro; // 每次滴水后，石头厚度减少0.1μm
+
+            console.log("第 " + drops + " 次滴水后，石头厚度为：" + stoneThickness.toFixed(1));
+        }
+
+        console.log("经过 " + drops + " 次滴水后，石头被穿透");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!-- 实验三：体重指数计算器 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <script>
+        let weight = 70; // 体重（kg）
+        let height = 1.75; // 身高（m）
+        
+        let bmi = weight / (height * height);
+        
+        if (bmi < 18.5) {
+            console.log("体重过轻");
+        } else if (bmi >= 18.5 && bmi < 25) {
+            console.log("体重正常");
+        } else if (bmi >= 25 && bmi < 30) {
+            console.log("超重");
+        } else {
+            console.log("肥胖");
+        }
+    </script>
+</body>
+
+</html>

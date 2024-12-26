@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环保宣传轮播图</title>
+    <style>
+        .main {
+            width: 480px;
+            height: 402px;
+            position: relative;
+            margin: 50px auto;
+        }
+        .main #txt, .main #num {
+            position: absolute;
+            width: 480px;
+            height: 40px;
+            background: rgba(255, 255, 0, 0.7);
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        .main #txt {
+            bottom: 40px;
+            color: #666;  
+        }
+        .main #num {
+            bottom: 0px;
+            color: #f00;
+        }
+        #prev, #next {
+            position: absolute;
+            bottom: 0;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img id="img" src="" />
+        <p id="txt"></p>
+        <p id="num"></p>
+        <div id="prev">&lt;</div>
+        <div id="next">&gt;</div>
+    </div>
+    <script>
+        var oImg = document.getElementById('img');
+        var oTxt = document.getElementById('txt');
+        var oNum = document.getElementById('num');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var aSrc = ["https://blqqd-pa-fs-prd-pub.iblimg.com/mp/mp_goods/bgbl/20241112/46eb88f6da2641f69dabeedf4b63ee2a.jpg?x-image-process=image%2Fresize%2Cm_lfit%2Cw_360%2Ch_360", "https://blqqd-pa-fs-prd-pub.iblimg.com/mp/mp_goods/bgbl/20241112/e1eead398aab4bbb9ac2d4c9d0297c37.jpg?x-image-process=image%2Fresize%2Cm_lfit%2Cw_360%2Ch_360", "https://blqqd-pa-fs-prd-pub.iblimg.com/mp/mp_goods/bgbl/20241112/e9710d1604ff447ba2857e4b94c3e05b.jpg?x-image-process=image%2Fresize%2Cm_lfit%2Cw_360%2Ch_360"];
+        var aTxt = ["第一张图片", "第二张图片", "第三张图片"];
+        
+        var num = 0;
+
+        function slide() {
+            oImg.src = aSrc[num];
+            oTxt.innerHTML = aTxt[num];
+            oNum.innerHTML = (num + 1) + "/" + aSrc.length;
+        }
+        slide();
+        oPrev.onclick = function() {
+            num--;
+            if (num < 0) {
+                num = aSrc.length - 1;
+            }
+            slide();
+        }
+        oNext.onclick = function() {
+            num++;
+            if (num > aSrc.length - 1) {
+                num = 0;
+            }
+            slide();
+        }
+    </script>
+</body>
+</html>

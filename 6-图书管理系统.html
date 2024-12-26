@@ -1,0 +1,62 @@
+<!-- 实验六：图书管理系统 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统</title>
+</head>
+
+<body>
+    <script>
+        function Book(title, author, publicationDate) {
+            this.title = title;
+            this.author = author;
+            this.publicationDate = publicationDate;
+            this.isavailable = true;
+            this.borrow = function() {
+                if(this.isavailable) {
+                    this.isavailable = false;
+                    console.log('${this.title} 已借出.');
+                } else {
+                    console.log('${this.title} 已被借出，无法借阅。');
+                }
+            };
+            this.returnBook = function() {
+                if(!this.isavailable) {
+                    this.isavailable = true;
+                    console.log('${this.title} 已返回.');
+                } else {
+                    console.log('${this.title} 尚未借出，无法归还。');
+                }
+            };
+            this.getInfo = function() {
+                return {
+                    title: this.title,
+                    author: this.author,
+                    publicationDate: this.publicationDate,
+                    isavailable: this.isavailable? "可借阅" : "不可借阅",
+                };
+            };
+        }
+
+        //  创建三个书籍对象
+        const book1 = new Book('JavaScript 教程', 'John Doe', '2023-04-15');
+        const book2 = new Book('Python 教程', 'Jane Doe', '2023-04-20');
+        const book3 = new Book('C++ 教程', 'Jimmy Smith', '2023-04-25');
+
+        // 调用borrow() 和 returnBook() 方法
+        book1.borrow();
+        book2.borrow();
+        book1.returnBook();
+        book3.borrow();
+
+        // 使用getInfo() 获取书籍信息
+        console.log(book1.getInfo());
+        console.log(book2.getInfo());
+        console.log(book3.getInfo());
+    </script>
+</body>
+
+</html>

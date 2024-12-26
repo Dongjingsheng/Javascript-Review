@@ -326,7 +326,7 @@ const result = multiply(4, 2);
 console.log(result); // 输出：8
 ```
 
-```markdown
+
 # 函数相关选择题
 
 ## 1. 函数定义：以下哪个选项是定义自定义函数的正确方式？
@@ -426,4 +426,3 @@ console.log(result); // 输出：8
 - D. `function() { ... }()`
 
 **答案**：A. `(function() { ... })();`
-```

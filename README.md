@@ -19,7 +19,7 @@
 - **解构赋值**：解构赋值是一种表达式，可以将数组或对象中的值解包到不同的变量中。它提供了一种简洁、易读的方式来从数组或对象中提取数据，同时为变量赋值。
 
 
-1. JavaScript中的合法标识符是：B. myname
+1. JavaScript中的合法标识符是：A. 2name B. myname C. @name D. function 正确答案：B
 2. 下列哪个选项不属于JavaScript的基本数据类型？ A. Number B. String C. Boolean D. Object 正确答案：D
 3. 扩展运算符（…）在函数调用中的用途是什么？ A. 将数组转换为函数参数 B. 将函数参数转换为数组 C. 将对象属性复制到另一个对象 D. 将字符串分割为数组 正确答案：A
 4. 下列哪个选项是正确的数据类型转换方式？ A. Number("123") B. String(456) C. Boolean("false") D. Object(789) 正确答案：A
